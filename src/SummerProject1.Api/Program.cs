@@ -24,9 +24,12 @@ builder.Services.AddDbContext<AppDbContext>(o => o.UseSqlServer(cs));
 builder.Services.AddSingleton<IBackgroundTaskQueue, BackgroundTaskQueue>();
 builder.Services.AddHostedService<QueuedHostedService>();
 
+// Execution service (creates its own scope per job)
+builder.Services.AddSingleton<ICheckExecutionService, CheckExecutionService>();
+
 // Providers registry
 builder.Services.AddSingleton<ISourceRegistry, SourceRegistry>();
-builder.Services.AddSingleton<IDummySourceRunner, DummySourceRunner>();
+builder.Services.AddScoped<IDummySourceRunner, DummySourceRunner>();
 
 // Stripe config object
 builder.Services.Configure<StripeOptions>(builder.Configuration.GetSection("Stripe"));
