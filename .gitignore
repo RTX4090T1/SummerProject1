@@ -1,0 +1,18 @@
+# Build artifacts
+bin/
+obj/
+
+# User-specific
+*.user
+*.suo
+
+# Rider
+.idea/
+
+# VS Code
+.vscode/
+
+# Env
+.env
+
+# EF migrations snapshots might be tracked

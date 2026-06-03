@@ -1,0 +1,5 @@
+<Project Sdk="Microsoft.Build.NoTargets/3.7.0">
+  <ItemGroup>
+    <None Include="..\..\src\**\*" Pack="true" PackagePath="src" />
+  </ItemGroup>
+</Project>
